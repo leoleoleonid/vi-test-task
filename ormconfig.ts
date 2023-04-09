@@ -1,0 +1,15 @@
+export default {
+  type: 'postgres',
+  host: process.env.DB_HOST || 'localhost',
+  database: process.env.POSTGRES_DB,
+  username: process.env.POSTGRES_USER,
+  password: process.env.POSTGRES_PASSWORD,
+  entities: ['dist/src/**/*.entity.js'],
+  factories: ['dist/database/factories/*.factory.js'],
+  seeds: ['dist/database/seeds/*.seed.js'],
+  migrations: ['dist/migrations/*{.ts,.js}'],
+  migrationsTableName: 'migrations_typeorm',
+  migrationsRun: true,
+  autoLoadEntities: true,
+  synchronize: process.env.NODE_ENV !== 'production',
+};
